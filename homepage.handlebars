@@ -1,0 +1,7 @@
+<h1>Upcoming Games</h1>
+{{#each events}}
+  <h2>{{ this.title }}</h2>
+  <p>{{ this.date }}</p>
+  <p>Hosted by {{ this.user.username }}</p>
+  <button><a href="/event/{{ this.id }}">View Event</a></button>
+{{/each}}
