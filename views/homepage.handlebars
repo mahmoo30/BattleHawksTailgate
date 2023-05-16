@@ -1,7 +1,14 @@
 <h1>Upcoming Games</h1>
-{{#each events}}
-  <h2>{{ this.title }}</h2>
-  <p>{{ this.date }}</p>
-  <p>Hosted by {{ this.user.username }}</p>
-  <button><a href="/event/{{ this.id }}">View Event</a></button>
-{{/each}}
+<ul class="game-list">
+  {{#each events}}
+    <li>
+      <a href="/event/{{ this.id }}">
+        <div class="game-details">
+          <img src="{{ this.teamLogo }}" alt="{{ this.title }} logo" class="team-logo" />
+          <p>{{ this.date }}</p>
+          <p>{{ this.attendees.length }} attendees</p>
+        </div>
+      </a>
+    </li>
+  {{/each}}
+</ul>

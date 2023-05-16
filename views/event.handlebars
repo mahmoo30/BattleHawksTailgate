@@ -1,11 +1,16 @@
 <h1>{{ title }}</h1>
+<img src="{{ teamLogo }}" alt="{{ title }} logo" class="team-logo" />
 <p>{{ date }}</p>
 <p>Hosted by {{ user.username }}</p>
 
 <h2>Attendees</h2>
-{{#each attendees}}
-  <p>{{ this.username }} is bringing {{ this.dish.name }} for {{ this.dish.servings }} people</p>
-{{/each}}
+<ul class="attendees-list">
+  {{#each attendees}}
+    <li>
+      <p>{{ this.username }} is bringing {{ this.dish.name }} for {{ this.dish.servings }} people</p>
+    </li>
+  {{/each}}
+</ul>
 
 {{#if logged_in}}
   <form action="/event/{{ id }}/attend" method="POST">
