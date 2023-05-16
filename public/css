@@ -29,3 +29,44 @@ header {
     grid-gap: 10px;
     margin: 20px 0;
 }
+
+
+
+.game-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.game-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.game-list a {
+  color: black;
+  text-decoration: none;
+}
+
+.game-details {
+  display: flex;
+  gap: 10px;
+}
+
+.team-logo {
+  width: 50px;
+}
+
+.attendees-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.attendees-list li {
+  border-bottom: 1px solid #ccc;
+  padding: 5px 0;
+}
+
+
