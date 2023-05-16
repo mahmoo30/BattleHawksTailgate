@@ -1,26 +1,29 @@
 const router = require('express').Router();
-const { Gallery, Painting } = require('../model');
-// Import the custom middleware
+const { Tailgates, Items } = require('../model');
 const withAuth = require('../utils/auth');
 
-// GET all galleries for homepage
+// GET ALL TAILGATES FOR HOMEPAGE
 router.get('/', async (req, res) => {
   try {
-    const dbGalleryData = await Gallery.findAll({
+    const dbData = await Tailgates.findAll({
       include: [
         {
-          model: Painting,
-          attributes: ['filename', 'description'],
+          model: Items,
+          attributes: ['item_name'],
         },
+        // {
+        //     model: Attendance,
+        //     attributes: ['item_name'],
+        // },
       ],
     });
 
-    const galleries = dbGalleryData.map((gallery) =>
-      gallery.get({ plain: true })
+    const tailgates = dbData.map((tailgate) =>
+      tailgate.get({ plain: true })
     );
 
     res.render('homepage', {
-      galleries,
+      tailgates,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -29,43 +32,37 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET one gallery
-// Use the custom middleware before allowing the user to access the gallery
-router.get('/gallery/:id', withAuth, async (req, res) => {
+// GET one TAILGATE
+router.get('/tailgate/:id', withAuth, async (req, res) => {
   try {
-    const dbGalleryData = await Gallery.findByPk(req.params.id, {
+    const dbData = await Tailgates.findByPk(req.params.id, {
       include: [
         {
-          model: Painting,
+          model: Items,
           attributes: [
             'id',
-            'title',
-            'artist',
-            'exhibition_date',
-            'filename',
-            'description',
+            'user_id',
+            'item_name',
           ],
         },
       ],
     });
 
-    const gallery = dbGalleryData.get({ plain: true });
-    res.render('gallery', { gallery, loggedIn: req.session.loggedIn });
+    const tailgate = dbData.get({ plain: true });
+    res.render('tailgate', { tailgate, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-// GET one painting
-// Use the custom middleware before allowing the user to access the painting
-router.get('/painting/:id', withAuth, async (req, res) => {
+// GET one ITEM
+router.get('/item/:id', withAuth, async (req, res) => {
   try {
-    const dbPaintingData = await Painting.findByPk(req.params.id);
+    const dbData = await Items.findByPk(req.params.id);
+    const item = dbData.get({ plain: true });
 
-    const painting = dbPaintingData.get({ plain: true });
-
-    res.render('painting', { painting, loggedIn: req.session.loggedIn });
+    res.render('item', { item, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
