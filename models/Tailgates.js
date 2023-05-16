@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 class Tailgates extends Model {}
@@ -6,13 +6,13 @@ class Tailgates extends Model {}
 Tailgates.init(
   {
     tailgate_id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
     event_date: {
-      type: Datatypes.DATE,
+      type: DataTypes.DATE,
       allowNull: false,
     },
     opposing_logo: {
@@ -20,7 +20,7 @@ Tailgates.init(
       allowNull: true,
     },
     battlehawks_logo: {
-      type: Datatypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
       defaultValue: "/public/images/battlehawks.png",
     },

@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const User = require("./User");
 const Tailgates = require("./Tailgates");
@@ -8,19 +8,19 @@ class Attendance extends Model {}
 Attendance.init(
   {
     attendance_id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
     user_id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       references: {
         model: User,
         key: "user_id",
       },
     },
     tailgate_id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       references: {
         model: Tailgates,
         key: "tailgate_id",
