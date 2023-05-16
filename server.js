@@ -2,9 +2,10 @@ const express = require('express');
 const routes = require('./routes');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
-const hbs = require('express-handlebars');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const path = require('path');  
+const exphbs = require('express-handlebars'); 
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -24,7 +25,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.engine('handlebars', hbs({ helpers }));
+const hbs = exphbs.create({
+  defaultLayout: 'main', 
+  helpers,
+  partialsDir: [
+    'views/partials/', 
+  ]
+});
+
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(routes);
