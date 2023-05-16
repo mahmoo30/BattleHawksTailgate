@@ -15,6 +15,19 @@ Tailgates.init(
       type: Datatypes.DATE,
       allowNull: false,
     },
+    opposing_logo: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    battlehawks_logo: {
+      type: Datatypes.STRING,
+      allowNull: false,
+      defaultValue: "/public/images/battlehawks.png",
+    },
+    home_game: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
   },
   {
     sequelize,
