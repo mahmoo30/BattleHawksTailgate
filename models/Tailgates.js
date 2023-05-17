@@ -15,14 +15,13 @@ Tailgates.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
-    opposing_logo: {
+    away_logo: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    battlehawks_logo: {
+    home_logo: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: "/public/images/battlehawks.png",
     },
     home_game: {
       type: DataTypes.BOOLEAN,

@@ -3,22 +3,48 @@ const { Tailgates, Items } = require("../models");
 const withAuth = require("../utils/auth");
 
 // GET ALL TAILGATES FOR HOMEPAGE
+// router.get("/", async (req, res) => {
+//   try {
+//     const dbData = await Tailgates.findAll({
+//       include: [
+//         {
+//           model: Items,
+//           attributes: ["item_name"],
+//         },
+//         // {
+//         //     model: Attendance,
+//         //     attributes: ['item_name'],
+//         // },
+//       ],
+//     });
+
+//     const tailgates = dbData.map((tailgate) => tailgate.get({ plain: true }));
+
+//     res.render("homepage", {
+//       tailgates,
+//       loggedIn: req.session.loggedIn,
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
 router.get("/", async (req, res) => {
   try {
     const dbData = await Tailgates.findAll({
-      include: [
-        {
-          model: Items,
-          attributes: ["item_name"],
-        },
-        // {
-        //     model: Attendance,
-        //     attributes: ['item_name'],
-        // },
+      attributes: [
+        "tailgate_id",
+        "event_date",
+        "away_logo",
+        "home_logo",
+        "home_game",
       ],
     });
 
     const tailgates = dbData.map((tailgate) => tailgate.get({ plain: true }));
+
+    console.log(tailgates);
 
     res.render("homepage", {
       tailgates,

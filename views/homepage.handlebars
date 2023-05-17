@@ -1,14 +1,20 @@
 <h1>Upcoming Games</h1>
 <ul class="game-list">
-  {{#each events}}
+  {{#each tailgates}}
     <li>
-      <a href="/event/{{ this.id }}">
+      {{#if this.home_game}}
+        <a href="/event/{{ this.id }}">
+      {{/if}}
         <div class="game-details">
-          <img src="{{ this.teamLogo }}" alt="{{ this.title }} logo" class="team-logo" />
-          <p>{{ this.date }}</p>
-          <p>{{ this.attendees.length }} attendees</p>
+          <img src="{{ this.away_logo }}" alt="Away Team Logo" class="team-logo" />
+          <span class="at-sign">@</span>
+          <img src="{{ this.home_logo }}" alt="Home Team Logo" class="team-logo" />
+          <p>{{ this.event_date }}</p>
+          <p>Attending: {{ this.attendees.length }}</p>
         </div>
-      </a>
+      {{#if this.home_game}}
+        </a>
+      {{/if}}
     </li>
   {{/each}}
 </ul>
