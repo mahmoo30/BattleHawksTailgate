@@ -1,10 +1,13 @@
+<div>
+    <img id="nav_logo" src="/images/battlehawks.png" alt="Logo">
+</div>
 <nav>
     <a href="/">Home</a>
     {{#if logged_in}}
         <a href="/profile">Profile</a>
         <a href="/logout">Logout</a>
     {{else}}
-        <a href="/login">Login</a>
+            <a href="/login">Login</a>
         <a href="/signup">Signup</a>
     {{/if}}
 </nav>

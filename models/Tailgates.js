@@ -27,6 +27,7 @@ Tailgates.init(
     home_game: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: true,
     },
   },
   {

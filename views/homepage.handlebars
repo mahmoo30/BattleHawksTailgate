@@ -1,11 +1,11 @@
 <h1>Upcoming Games</h1>
 <ul class="game-list">
-  {{#each events}}
+  {{#each tailgates}}
     <li>
       <a href="/event/{{ this.id }}">
         <div class="game-details">
-          <img src="{{ this.teamLogo }}" alt="{{ this.title }} logo" class="team-logo" />
-          <p>{{ this.date }}</p>
+          <img src="{{ this.battlehawks_logo }}" alt="{{ this.title }} logo" class="team-logo" />
+          <p>{{ this.event_date }}</p>
           <p>{{ this.attendees.length }} attendees</p>
         </div>
       </a>
