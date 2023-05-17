@@ -1,5 +1,5 @@
 const seedAttendance = require("./attendanceData");
-const seedComments = require("./commentsData");
+// const seedComments = require("./commentsData");
 const seedItems = require("./itemsData");
 const seedTailgates = require("./tailgatesData");
 

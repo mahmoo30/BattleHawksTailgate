@@ -6,7 +6,6 @@ const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const path = require("path");
 const exphbs = require("express-handlebars");
-const seedAll = require("./seeds/index");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -24,7 +23,7 @@ const sess = {
 app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 const hbs = exphbs.create({
   defaultLayout: "main",
@@ -37,18 +36,8 @@ app.set("view engine", "handlebars");
 
 app.use(routes);
 
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log("Database connection established successfully.");
-    return sequelize.sync({ force: false });
-  })
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Now listening on port http://localhost:${PORT}`);
-      seedAll();
-    });
-  })
-  .catch((err) => {
-    console.error("Unable to connect to the database:", err);
-  });
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () =>
+    console.log(`Now listening on port http://localhost:${PORT}`)
+  );
+});
