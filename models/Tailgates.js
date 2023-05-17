@@ -22,12 +22,11 @@ Tailgates.init(
     battlehawks_logo: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: "/public/images/battlehawks.png",
+      defaultValue: "/images/battlehawks.png",
     },
     home_game: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: true,
     },
   },
   {
