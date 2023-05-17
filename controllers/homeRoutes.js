@@ -36,8 +36,8 @@ router.get("/", async (req, res) => {
       attributes: [
         "tailgate_id",
         "event_date",
-        "opposing_logo",
-        "battlehawks_logo",
+        "away_logo",
+        "home_logo",
         "home_game",
       ],
     });

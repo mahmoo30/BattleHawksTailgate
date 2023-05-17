@@ -74,6 +74,10 @@ nav a:hover {
   gap: 10px;
 }
 
+.at-sign {
+  margin-top: 15px;
+}
+
 .team-logo {
   width: 50px;
 }
