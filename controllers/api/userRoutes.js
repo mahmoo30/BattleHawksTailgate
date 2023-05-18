@@ -4,7 +4,7 @@ const { User } = require("../../models");
 // CREATE new user
 router.post("/", async (req, res) => {
   try {
-
+      console.log(req.body);
   if (!req.body.username && !req.body.email && !req.body.password) 
   {
     res

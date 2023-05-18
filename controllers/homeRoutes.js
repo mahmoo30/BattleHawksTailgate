@@ -2,34 +2,6 @@ const router = require("express").Router();
 const { User, Tailgates, Items } = require("../models");
 const withAuth = require("../utils/auth");
 
-// GET ALL TAILGATES FOR HOMEPAGE
-// router.get("/", async (req, res) => {
-//   try {
-//     const dbData = await Tailgates.findAll({
-//       include: [
-//         {
-//           model: Items,
-//           attributes: ["item_name"],
-//         },
-//         // {
-//         //     model: Attendance,
-//         //     attributes: ['item_name'],
-//         // },
-//       ],
-//     });
-
-//     const tailgates = dbData.map((tailgate) => tailgate.get({ plain: true }));
-
-//     res.render("homepage", {
-//       tailgates,
-//       loggedIn: req.session.loggedIn,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
 router.get("/", async (req, res) => {
   try {
     const dbData = await Tailgates.findAll({
@@ -102,5 +74,25 @@ router.get("/signup", async (req, res) => {
 
     res.render("signup");
   });
+
+// Use withAuth middleware to prevent access to route
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Items }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('profile', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
