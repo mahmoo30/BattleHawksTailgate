@@ -6,6 +6,7 @@ const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const path = require("path");
 const exphbs = require("express-handlebars");
+const dateHelpers = require("./utils/helpers");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -27,7 +28,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const hbs = exphbs.create({
   defaultLayout: "main",
-  helpers,
+  helpers: {
+    ...helpers,
+    ...dateHelpers,
+  },
   partialsDir: ["views/partials/"],
 });
 
