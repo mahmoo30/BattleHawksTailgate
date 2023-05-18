@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Tailgates, Items } = require("../models");
+const { User, Tailgates, Items } = require("../models");
 const withAuth = require("../utils/auth");
 
 // GET ALL TAILGATES FOR HOMEPAGE
@@ -97,5 +97,10 @@ router.get("/login", (req, res) => {
 
   res.render("login");
 });
+
+router.get("/signup", async (req, res) => {
+
+    res.render("signup");
+  });
 
 module.exports = router;
