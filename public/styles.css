@@ -56,8 +56,17 @@ nav a:hover {
   padding: 0;
 }
 
-.game-list li {
+.home {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.away {
+  display: flex;
+  background-color: gray;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
@@ -76,6 +85,10 @@ nav a:hover {
 
 .at-sign {
   margin-top: 15px;
+}
+
+.tailgate-attending {
+  color:#444;
 }
 
 .team-logo {
