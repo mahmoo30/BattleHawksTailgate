@@ -12,7 +12,7 @@
   {{/each}}
 </ul>
 
-{{#if logged_in}}
+{{#if loggedIn}}
   <form action="/tailgate/{{ tailgate_id }}/attend" method="POST">
     <label for="dish">What are you bringing?</label>
     <input type="text" id="dish" name="dish">
