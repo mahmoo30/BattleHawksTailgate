@@ -4,7 +4,8 @@ const signupFormHandler = async (event) => {
     const username = document.querySelector('#username').value.trim();
     const email = document.querySelector('#email').value.trim();
     const password = document.querySelector('#password').value.trim();
-  
+    const form = document.getElementById('signup');
+
     if (username && email && password) {
       const response = await fetch('/api/users', {
         method: 'POST',
@@ -15,7 +16,11 @@ const signupFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/');
       } else {
-        alert(response.statusText);
+      alert(response.statusText);
+      //  console.log(response);
+      //  const message = document.createElement('p');
+      //  message.textContent = response.message;
+      //  form.appendChild(message);
       }
     }
   };
@@ -23,4 +28,5 @@ const signupFormHandler = async (event) => {
   document
     .querySelector('.signup-form')
     .addEventListener('submit', signupFormHandler);
+  
   
