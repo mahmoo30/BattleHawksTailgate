@@ -145,6 +145,31 @@ h2{
   text-align:center;
   padding: 20px;
 }
+
+.single-game-tailgate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-single {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  align-items: center;
+  background-color: rgb(241, 241, 241);
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.submit-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.attendance {
+  text-align: center;
+}
 /* Tailgate end */
 
 /* Slider start */
@@ -266,7 +291,7 @@ h2{
 
 /* Slider end */
 
-/* Logout */
+/* Logout start */
 
 .no-button {
   background: none;
@@ -288,3 +313,26 @@ h2{
 #footer {
   text-align: center;
 }
+
+/* Login and Sign-up start */
+.login-signup-heading {
+  text-align: center;
+}
+
+.login-signup-container {
+  display: flex;
+  justify-content: center;
+}
+
+#username {
+  display: block;
+}
+
+#password {
+  display: block;
+}
+
+#email {
+  display: block;
+}
+/* Login and Sign-up end */

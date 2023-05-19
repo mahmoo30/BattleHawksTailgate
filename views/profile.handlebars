@@ -1,0 +1,17 @@
+<h1>Welcome to Your Profile</h1>
+
+<h2>Items You've Signed Up For:</h2>
+{{#if items.length}}
+  <ol>
+    {{#each items}}
+      <li>
+        <p><strong>Item: </strong>{{ item_name }}</p>
+        <p><strong>Tailgate: </strong>{{ tailgate.event_date }}</p>
+      </li>
+    {{/each}}
+  </ol>
+{{else}}
+  <p>You haven't signed up for any items yet.</p>
+{{/if}}
+
+

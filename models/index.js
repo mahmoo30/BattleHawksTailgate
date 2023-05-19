@@ -39,4 +39,9 @@ Attendance.belongsTo(Tailgates, {
   foreignKey: "tailgate_id",
 });
 
+User.hasMany(Items, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
+});
+
 module.exports = { Attendance, Items, Tailgates, User };
