@@ -1,0 +1,33 @@
+{{#if tailgate.home_game}}
+  <ul class="single-game-tailgate">
+    <li class="home-single">
+      <div class="game-details">
+        <img src="{{ tailgate.away_logo }}" alt="Away Team Logo" class="team-logo" />
+        <span class="at-sign">@</span>
+        <img src="{{ tailgate.home_logo }}" alt="Home Team Logo" class="team-logo" />
+        <p class="event-date">{{ formatDate tailgate.event_date }}</p>
+      </div>
+    </li>
+  </ul>
+    <h2>Tailgate Item List:</h2>
+  <ol>
+    {{#each tailgate.items}}
+      <li>
+        <ul>
+          <li><strong>Item: </strong>{{ item_name }}</li>
+          <li><strong>Submitted by: </strong>{{ user.username }}</li>
+        </ul>
+      </li>
+    {{/each}}
+  </ol>
+  <p id="attendance">Total Attendance: {{ tailgate.attendance.length }}</p>
+{{else}}
+  <h1 class="login-signup-heading">Sorry, this is an away game :(</h1>
+{{/if}}
+  <h2>Submit Your Item:</h2>
+  <div class="submit-form-container">
+    <form action="/submit-item" method="POST">
+        <input type="text" name="item_name" placeholder="Item Name" required>
+        <button type="submit">Submit</button>
+    </form>
+  </div>
