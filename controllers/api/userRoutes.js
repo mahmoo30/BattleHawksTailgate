@@ -4,34 +4,36 @@ const { User } = require("../../models");
 // CREATE new user
 router.post("/", async (req, res) => {
   try {
-      console.log(req.body);
-  if (!req.body.username && !req.body.email && !req.body.password) 
-  {
-    res
-    .status(400)
-    .json({ message: "Must provide username, email and password. Please try again!" });
-  }
+    console.log(req.body);
+    if (!req.body.username && !req.body.email && !req.body.password) {
+      res
+        .status(400)
+        .json({
+          message:
+            "Must provide username, email and password. Please try again!",
+        });
+    }
 
-  // if (req.body.email) 
-  // {
-  //   res
-  //   .status(400)
-  //   .json({ message: "Must provide username, email and password. Please try again!" });
-  // }
+    // if (req.body.email)
+    // {
+    //   res
+    //   .status(400)
+    //   .json({ message: "Must provide username, email and password. Please try again!" });
+    // }
 
-  if (req.body.password.length < 8) 
-  {
-    res
-    .status(400)
-    .json({ message: "Minimum password length must be 8 . Please try again!" });
-  }
+    if (req.body.password.length < 8) {
+      res
+        .status(400)
+        .json({
+          message: "Minimum password length must be 8 . Please try again!",
+        });
+    }
 
-  if (req.body.password.length > 16) 
-  {
-    res
-    .status(400)
-    .json({ message: "Maximum password length is 16 . Please try again!" });
-  }
+    if (req.body.password.length > 16) {
+      res
+        .status(400)
+        .json({ message: "Maximum password length is 16 . Please try again!" });
+    }
     const dbUserData = await User.create({
       username: req.body.username,
       email: req.body.email,
@@ -45,8 +47,8 @@ router.post("/", async (req, res) => {
       res.status(200).json(dbUserData);
     });
   } catch (err) {
-    console.log('ERROR: ' + err.errors[0].message);
-    res.status(500).json({message: err.errors[0].message});
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
@@ -125,7 +127,6 @@ router.post("/login", async (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
-
 
 // Logout
 router.post("/logout", (req, res) => {
