@@ -6,12 +6,9 @@ router.post("/", async (req, res) => {
   try {
     console.log(req.body);
     if (!req.body.username && !req.body.email && !req.body.password) {
-      res
-        .status(400)
-        .json({
-          message:
-            "Must provide username, email and password. Please try again!",
-        });
+      res.status(400).json({
+        message: "Must provide username, email and password. Please try again!",
+      });
     }
 
     // if (req.body.email)
@@ -22,11 +19,9 @@ router.post("/", async (req, res) => {
     // }
 
     if (req.body.password.length < 8) {
-      res
-        .status(400)
-        .json({
-          message: "Minimum password length must be 8 . Please try again!",
-        });
+      res.status(400).json({
+        message: "Minimum password length must be 8 . Please try again!",
+      });
     }
 
     if (req.body.password.length > 16) {
@@ -57,7 +52,7 @@ router.post("/login", async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
-        email: req.body.email,
+        username: req.body.username,
       },
     });
 
