@@ -1,3 +1,7 @@
+body {
+  background-color: #919191 !important;
+}
+
 /* Nav start */
 header {
   background-color: rgb(0, 38, 119);
@@ -52,29 +56,52 @@ nav a:hover {
   text-align: center;
 }
 
-.game-list {
-  list-style-type: none;
-  padding: 0;
+.game-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
-.home,
-.away {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  border-bottom: 1px solid #ccc;
-  max-width: 800px;
+.game-list {
+  flex: 1 1 60%;
+  list-style-type: none;
+  padding: 0;
+  margin-right: 10px;
+}
+
+.game-list-image {
+  flex: 1 1 30%;
+  max-width: 100%;
+  margin-top: 10px;
 }
 
 .home {
-  background-color: #f2f2f2;
-  justify-content: center;
+  display: flex;
+  max-width: 800px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(241, 241, 241);
+  padding: 10px;
+  border: 1px solid #ccc;
 }
 
 .away {
+  display: flex;
+  max-width: 800px;
   background-color: gray;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.event-date {
+  margin-top: 15px;
+}
+
+.game-list li {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .game-list a {
@@ -84,12 +111,7 @@ nav a:hover {
 
 .game-details {
   display: flex;
-  align-items: center;
   gap: 10px;
-  flex-grow: 1;
-  padding: 0 10px; 
-  justify-content: center;
-  
 }
 
 .at-sign {
@@ -101,8 +123,8 @@ nav a:hover {
 
 .tailgate-attending {
   color:#444;
+  margin-top: 15px;
 }
-
 
 .team-logo {
   width: 50px;
@@ -118,11 +140,11 @@ nav a:hover {
   padding: 5px 0;
 }
 
+
 h2{
   text-align:center;
   padding: 20px;
 }
-
 /* Tailgate end */
 
 /* Slider start */
@@ -241,7 +263,6 @@ h2{
 .slick-arrow.slick-hidden {
     display: none;
 }
-
 /* Slider end */
 
 /* Footer start */
