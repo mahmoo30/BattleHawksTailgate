@@ -288,3 +288,26 @@ h2{
 #footer {
   text-align: center;
 }
+
+/* Login and Sign-up start */
+.login-signup-heading {
+  text-align: center;
+}
+
+.login-signup-container {
+  display: flex;
+  justify-content: center;
+}
+
+#username {
+  display: block;
+}
+
+#password {
+  display: block;
+}
+
+#email {
+  display: block;
+}
+/* Login and Sign-up end */
