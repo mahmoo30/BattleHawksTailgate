@@ -15,7 +15,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/tailgate');
+        document.location.replace('/tailgate/:id');
       } else {
         alert('Failed to create item');
       }
