@@ -11,13 +11,6 @@ router.post("/", async (req, res) => {
       });
     }
 
-    // if (req.body.email)
-    // {
-    //   res
-    //   .status(400)
-    //   .json({ message: "Must provide username, email and password. Please try again!" });
-    // }
-
     if (req.body.password.length < 8) {
       res.status(400).json({
         message: "Minimum password length must be 8 . Please try again!",

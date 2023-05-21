@@ -49,12 +49,19 @@ router.get("/tailgate/:id", withAuth, async (req, res) => {
 });
 
 // GET one ITEM
-router.get("/item/:id", withAuth, async (req, res) => {
+router.get("/item:id", withAuth, async (req, res) => {
   try {
     const dbData = await Items.findByPk(req.params.id);
+    include: [
+      {
+        model: User,
+        attributes: ['username'],
+      }
+    ]
     const item = dbData.get({ plain: true });
 
-    res.render("item", { item, loggedIn: req.session.loggedIn });
+    res.render("tailgate", 
+    { item, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
