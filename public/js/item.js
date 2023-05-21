@@ -4,18 +4,21 @@ const newFormHandler = async (event) => {
     const name = document.querySelector('#item-name').value.trim();
     // const needed_funding = document.querySelector('#project-funding').value.trim();
     // const description = document.querySelector('#project-desc').value.trim();
-  
+    const tailgateID = document.querySelector('.submit-form-container').getAttribute('data-id');
+
+
     if (name) {
       const response = await fetch(`/api/items`, {
         method: 'POST',
-        body: JSON.stringify({ item_name }),
+        body: JSON.stringify({ item_name: name, tailgate_id: tailgateID }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
   
       if (response.ok) {
-        document.location.replace('/tailgate/:id');
+        console.log(response);
+        document.location.reload();
       } else {
         alert('Failed to create item');
       }

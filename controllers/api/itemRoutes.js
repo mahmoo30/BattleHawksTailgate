@@ -6,10 +6,13 @@ console.log('I AM ITEMROUTES');
 
 router.post('/', withAuth, async (req, res) => {
  console.log('I AM ITEM POSTING');
+ console.log(req.body);
+
     try {
     const newItem = await Items.create({
-      ...req.body,
+      item_name: req.body.item_name,
       user_id: req.session.user_id,
+      tailgate_id: req.body.tailgate_id,
     });
 
     console.log('I AM NEW ITEM', newItem);

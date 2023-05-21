@@ -1,4 +1,5 @@
 {{#if tailgate.home_game}}
+{{log tailgate}}
   <ul class="single-game-tailgate">
     <li class="home-single">
       <div class="game-details">
@@ -32,9 +33,11 @@
 {{/if}}
 
 <h2>Submit Your Item:</h2>
-<div class="submit-form-container">
+<div class="submit-form-container" data-id="{{tailgate.tailgate_id}}">
   <form class="new-item-form">
-    <input type="text" name="item_name" placeholder="Item Name" required>
+    <input id='item-name' type="text" name="item_name" placeholder="Item Name" required>
     <button type="submit">Submit</button>
   </form>
 </div>
+
+<script src="/js/item.js"></script>
