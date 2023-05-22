@@ -12,6 +12,10 @@ header {
   justify-content: space-between;
 }
 
+#bht-title {
+  text-align: center;
+}
+
 #nav_logo {
   height: 60px;
   margin-right: 10px;
@@ -140,6 +144,35 @@ nav a:hover {
   padding: 5px 0;
 }
 
+.individual-tailgate-container {
+  max-width: 500px;
+  border-radius: 10px;
+  background-color: white;
+  border: 2px solid rgb(0, 38, 119);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.individual-tailgate-container::after {
+  content: "";
+  display: block;
+  border: 2px solid #919191;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.listed-tailgate-item::marker {
+}
+
+.ol-tailgate li::marker {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(0, 38, 119);
+}
 
 h2{
   text-align:center;

@@ -12,12 +12,13 @@
   </ul>
   <h2>Tailgate Item List:</h2>
   {{#if tailgate.items.length}}
-    <ol>
+
+    <ol class="ol-tailgate">
       {{#each tailgate.items as |item|}}
-        <li>
+        <li class="individual-tailgate-container">
           <ul>
-            <li><strong>Item: </strong>{{ item_name }}</li>
-            <li><strong>Submitted by: </strong>{{ user.username }}</li>
+            <li class="listed-tailgate-item"><strong>Item: </strong>{{ item_name }}</li>
+            <li class="listed-tailgate-item"><strong>Submitted by: </strong>{{ user.username }}</li>
           </ul>
         </li>
       {{/each}}
