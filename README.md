@@ -25,6 +25,7 @@ The motivation behind developing this app is to enhance the overall tailgating e
 ## Usage
 
  [Click here](https://infinite-savannah-06208.herokuapp.com/) to be directed to our working application.
+ Sign up for an account and then click on a home game in order to see the list of things people are bringing to that specific tailgate, or even add your own items!
 
 ## Repo
 
