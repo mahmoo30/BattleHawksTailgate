@@ -1,13 +1,15 @@
 <div>
     <img id="nav_logo" src="/images/battlehawks.png" alt="Logo">
 </div>
+<h1 id="bht-title">Battlehawks Tailgates</h1>
 <nav>
     <a href="/">Home</a>
     {{#if loggedIn}}
-    <a href="/profile">Profile</a> |
+    {{!<a href="/profile">Profile</a>}} |
     <a class="no-button" id="logout">Logout</a>
         {{!-- <a href="/profile">Profile</a>
         <a href="/logout">Logout</a> --}}
+        {{! FUTURE IMPLEMENTATION }}
     {{else}}
         <a href="/login">Login</a>
         <a href="/signup">Signup</a>
