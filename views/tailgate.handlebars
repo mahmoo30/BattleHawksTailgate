@@ -13,7 +13,7 @@
   <h2>Tailgate Item List:</h2>
   {{#if tailgate.items.length}}
     <ol>
-      {{#each tailgate.items}}
+      {{#each tailgate.items as |item|}}
         <li>
           <ul>
             <li><strong>Item: </strong>{{ item_name }}</li>
