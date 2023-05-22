@@ -1,4 +1,5 @@
 {{#if tailgate.home_game}}
+{{log tailgate}}
   <ul class="single-game-tailgate">
     <li class="home-single">
       <div class="game-details">
@@ -12,7 +13,7 @@
   <h2>Tailgate Item List:</h2>
   {{#if tailgate.items.length}}
     <ol>
-      {{#each tailgate.items}}
+      {{#each tailgate.items as |item|}}
         <li>
           <ul>
             <li><strong>Item: </strong>{{ item_name }}</li>
@@ -28,13 +29,15 @@
     <p class="attendance">Nobody has contributed to this tailgate yet. Be the first by submitting your contribution!</p>
   {{/if}}
 {{else}}
-  <h1 class="login-signup-heading">Sorry, this is an away game :(</h1>
+  <h1 class="login-signup-heading">Sorry, this is an away game :</h1>
 {{/if}}
 
 <h2>Submit Your Item:</h2>
-<div class="submit-form-container">
-  <form action="/submit-item" method="POST">
-    <input type="text" name="item_name" placeholder="Item Name" required>
+<div class="submit-form-container" data-id="{{tailgate.tailgate_id}}">
+  <form class="new-item-form">
+    <input id='item-name' type="text" name="item_name" placeholder="Item Name" required>
     <button type="submit">Submit</button>
   </form>
 </div>
+
+<script src="/js/item.js"></script>

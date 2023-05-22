@@ -11,13 +11,6 @@ router.post("/", async (req, res) => {
       });
     }
 
-    // if (req.body.email)
-    // {
-    //   res
-    //   .status(400)
-    //   .json({ message: "Must provide username, email and password. Please try again!" });
-    // }
-
     if (req.body.password.length < 8) {
       res.status(400).json({
         message: "Minimum password length must be 8 . Please try again!",
@@ -36,7 +29,7 @@ router.post("/", async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.user_id = dbUserData.id;
+      req.session.user_id = dbUserData.dataValues.user_id;
       req.session.loggedIn = true;
 
       res.status(200).json(dbUserData);
@@ -73,8 +66,12 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
+      console.log(dbUserData);
+      console.log('THIS IS LINE 70');
+      console.log(dbUserData.dataValues.user_id);
+      req.session.user_id = dbUserData.dataValues.user_id;
       req.session.loggedIn = true;
-
+      
       res
         .status(200)
         .json({ user: dbUserData, message: "You are now logged in!" });

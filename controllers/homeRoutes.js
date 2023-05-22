@@ -30,12 +30,19 @@ router.get("/", async (req, res) => {
 
 // GET one TAILGATE
 router.get("/tailgate/:id", withAuth, async (req, res) => {
+  console.log(req.session.user_id);
   try {
     const dbData = await Tailgates.findByPk(req.params.id, {
       include: [
         {
           model: Items,
           attributes: ["id", "user_id", "item_name"],
+            include: [
+              {
+                model: User,
+                attributes: ["username"],
+              }
+          ]
         },
       ],
     });
@@ -49,12 +56,19 @@ router.get("/tailgate/:id", withAuth, async (req, res) => {
 });
 
 // GET one ITEM
-router.get("/item/:id", withAuth, async (req, res) => {
+router.get("/item:id", withAuth, async (req, res) => {
   try {
-    const dbData = await Items.findByPk(req.params.id);
+    const dbData = await Items.findByPk(req.params.id, {
+    include: [
+      {
+        model: User,
+        attributes: ['username'],
+      }
+    ]});
     const item = dbData.get({ plain: true });
 
-    res.render("item", { item, loggedIn: req.session.loggedIn });
+    res.render("tailgate", 
+    { item, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
