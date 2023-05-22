@@ -30,12 +30,19 @@ router.get("/", async (req, res) => {
 
 // GET one TAILGATE
 router.get("/tailgate/:id", withAuth, async (req, res) => {
+  console.log(req.session.user_id);
   try {
     const dbData = await Tailgates.findByPk(req.params.id, {
       include: [
         {
           model: Items,
           attributes: ["id", "user_id", "item_name"],
+          //   include: [
+          //     {
+          //       mode: User,
+          //       attributes: ["username"],
+          //     }
+          // ]
         },
       ],
     });
