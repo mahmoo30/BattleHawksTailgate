@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Visuals
-<img src="./public/imagesReadMe/apppic.PNG" alt="Homepage" width="50%" />
+![Homepage](./public/imagesReadMe/apppic.PNG)
 
 ## Description
 
